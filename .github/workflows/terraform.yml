@@ -5,6 +5,8 @@ on:
     branches:
       - main
 
+concurrency: terraform-deploy  # Prevents concurrent runs
+
 env:
   AWS_REGION: us-east-1
   TF_VAR_upload_bucket_name: ${{ secrets.UPLOAD_BUCKET_NAME }}
@@ -38,7 +40,6 @@ jobs:
       - name: Terraform Init (Reconfigure)
         run: terraform init -reconfigure
 
-
       - name: Terraform Plan
         run: terraform plan
 
@@ -46,8 +47,3 @@ jobs:
         env:
           GZIP: "false"
         run: terraform apply -auto-approve
-
-      #- name: Terraform Apply
-       # env:
-        #  GZIP: "false"
-       # run: terraform destroy -auto-approve
