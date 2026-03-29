@@ -41,7 +41,7 @@ jobs:
         run: terraform init -reconfigure
       
       - name: Terraform Force Unlock         # ← After credentials are configured
-        run: terraform force-unlock bcc1ae03-be53-6de9-3877-5dcd490d6197
+        run: terraform force-unlock bcc1ae03-be53-6de9-3877-5dcd490d6197 -auto-approve
         continue-on-error: true
 
       - name: Terraform Plan
