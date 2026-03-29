@@ -22,10 +22,7 @@ jobs:
         working-directory: infra/terraform
 
     steps:
-      - name: Terraform Force Unlock
-        run: terraform force-unlock bcc1ae03-be53-6de9-3877-5dcd490d6197
-        continue-on-error: true
-      - name: Checkout repo
+      - name: Checkout repo                    # ← Move this FIRST
         uses: actions/checkout@v4
 
       - name: Setup Terraform
@@ -39,6 +36,10 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
+
+      - name: Terraform Force Unlock         # ← After credentials are configured
+        run: terraform force-unlock bcc1ae03-be53-6de9-3877-5dcd490d6197
+        continue-on-error: true
 
       - name: Terraform Init (Reconfigure)
         run: terraform init -reconfigure
