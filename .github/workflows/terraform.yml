@@ -18,7 +18,8 @@ jobs:
     defaults:
       run:
         working-directory: infra/terraform
- steps:
+
+    steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
@@ -38,15 +39,15 @@ jobs:
         run: terraform init -reconfigure
 
 
-       - name: Terraform Plan
-         run: terraform plan
+      - name: Terraform Plan
+        run: terraform plan
 
-       - name: Terraform Apply
-         env:
-           GZIP: "false"
-         run: terraform apply -auto-approve
+      - name: Terraform Apply
+        env:
+          GZIP: "false"
+        run: terraform apply -auto-approve
 
       #- name: Terraform Apply
        # env:
         #  GZIP: "false"
-      # run: terraform destroy -auto-approve
+       # run: terraform destroy -auto-approve
