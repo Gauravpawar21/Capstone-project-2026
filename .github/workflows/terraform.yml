@@ -42,7 +42,7 @@ jobs:
         continue-on-error: true 
 
       - name: Terraform Init (Reconfigure)
-        run: terraform init -reconfigure -lock=false
+        run: terraform init -reconfigure
       
       - name: Terraform Plan
         run: terraform plan
