@@ -6,7 +6,7 @@ output "s3_bucket_name" {
   value = aws_s3_bucket.upload_bucket.bucket
 }
 
-output "frontend_bucket_name21`" {
+output "frontend_bucket_name21" {
   description = "Name of the S3 bucket hosting frontend"
   value       = aws_s3_bucket.frontend_bucket.bucket
 }
