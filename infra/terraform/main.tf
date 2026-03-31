@@ -250,7 +250,7 @@ resource "aws_iam_policy" "presign_lambda_policy" {
           "s3:GetObject"
         ]
         Effect   = "Allow"
-        Resource = "arn:aws:s3:::${var.upload_bucket_name21}/*"
+        Resource = "arn:aws:s3:::${var.upload_bucket_name2121}/*"
       }
     ]
   })
