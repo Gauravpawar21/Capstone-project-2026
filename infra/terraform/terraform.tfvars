@@ -6,4 +6,4 @@ frontend_bucket_name21="devops-accelerator-frontend-hosting-bucket21"
 
 cloudfront_price_class   = "PriceClass_100"
 
-notification_email = "rajshreepawar21@gmail.com"
+notification_email = "rajashreepawar21@gmail.com"
